@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+html,
+body {
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  transition: opacity 0.3s ease;
+}
+
+body.page-transitioning {
+  opacity: 0;
+}
+
+body.page-transitioning * {
+  cursor: progress !important;
+}
+
+:root {
+  color: white;
+  min-height: 100vh;
+  height: auto;
+}
+
+.outlined-text {
+  color: white;
+  animation: scale-rotate 2s ease-in-out, fade-in 2s ease-in-out forwards;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.7),
+    0 0 12px rgba(255, 255, 255, 0.5), 0 0 24px rgba(255, 255, 255, 0.3);
+}
+
+@keyframes scale-rotate {
+  0% {
+    opacity: 0.8;
+    text-shadow: none;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.8;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.7),
+      0 0 12px rgba(255, 255, 255, 0.5), 0 0 24px rgba(255, 255, 255, 0.3);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .outlined-text {
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.6),
+      0 0 8px rgba(255, 255, 255, 0.4), 0 0 16px rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* Add this to your global CSS file */
+.markdown-content ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.markdown-content ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.markdown-content li {
+  margin-bottom: 0.25rem;
+}
+
+.markdown-content blockquote {
+  border-left: 4px solid #6b7280;
+  padding-left: 1rem;
+  font-style: italic;
+  margin: 1rem 0;
+}
+
+.markdown-content pre {
+  background-color: #1f2937;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.markdown-content code {
+  background-color: rgba(31, 41, 55, 0.5);
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.markdown-content p {
+  margin-bottom: 1rem;
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
+  font-weight: bold;
+  margin: 1.5rem 0 0.75rem 0;
+}
+
+.markdown-content h1 {
+  font-size: 1.75rem;
+}
+
+.markdown-content h2 {
+  font-size: 1.5rem;
+}
+
+.markdown-content h3 {
+  font-size: 1.25rem;
+}
+
+.markdown-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.markdown-content table th,
+.markdown-content table td {
+  border: 1px solid #4b5563;
+  padding: 0.5rem;
+}
+
+.markdown-content table th {
+  background-color: #374151;
+}
