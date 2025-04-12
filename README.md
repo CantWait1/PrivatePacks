@@ -1,6 +1,6 @@
 # 🧱 Private Packs
 
-Welcome to **Private Packs**, an exclusive platform for sharing, discovering, and managing **private Minecraft texture packs** – trusted by over **500 dedicated members** in the community.
+Welcome to **Private Packs**, an exclusive platform for sharing, discovering, and managing **private Minecraft texture packs** – for over **500 dedicated members** in the community.
 
 ![Private Packs Banner](https://your-image-link.com/banner.png)
 
@@ -9,29 +9,20 @@ Welcome to **Private Packs**, an exclusive platform for sharing, discovering, an
 - 🎨 **Exclusive Packs**  
   Browse high-quality, hand-picked texture packs not found anywhere else.
 
-- 🔒 **Private Access**  
-  Secure login system ensuring only approved members can access downloads.
-
-- 🔍 **Powerful Search & Filters**  
-  Find your ideal PvP pack by resolution, version, theme, and more.
-
-- 💾 **Self-hosted Storage**  
-  All packs are stored locally for fast and reliable access.
-
 - 🧑‍🤝‍🧑 **Community-Driven**  
   Created by players, for players. Feedback and contributions are always welcome!
 
 ## 🛠️ Tech Stack
 
 - **Next.js** (Frontend)
-- **PostgreSQL + Docker** (Database & Dev Environment)
+- **PostgreSQL + Supabase** (Database & Dev Environment)
 - **Prisma** (ORM)
 - **Tailwind CSS** (Styling)
 - **Authentication** (Secure member login system)
 
 ## 🌐 Live Demo
 
-> Coming soon: [www.privatepacks.xyz](https://www.privatepacks.xyz)
+> Coming soon: [www.privatepacks.net](https://www.privatepacks.net)
 
 ## 📸 Screenshots
 
