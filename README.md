@@ -1,4 +1,4 @@
-# 🧱 Private Packs
+# Private Packs
 
 Welcome to **Private Packs**, an exclusive platform for sharing, discovering, and managing **private Minecraft texture packs** – for over **500 dedicated members** in the community.
 
