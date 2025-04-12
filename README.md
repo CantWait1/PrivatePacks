@@ -34,13 +34,13 @@ Welcome to **Private Packs**, an exclusive platform for sharing, discovering, an
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/yourusername/privatepacks.git
+git clone https://github.com/CantWait1/PrivatePacks.git
 
-# 2. Install dependencies
-npm install
+# 2. Push To Database
+npx prisma db push
 
-# 3. Start Docker for PostgreSQL
-docker-compose up -d
+# 3. Generate Prisma Client
+npx prisma generate
 
 # 4. Run the development server
 npm run dev
