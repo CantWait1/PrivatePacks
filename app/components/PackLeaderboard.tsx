@@ -82,7 +82,7 @@ const PackLeaderboard: React.FC = () => {
         return b.downloadCount - a.downloadCount;
       }
     })
-    .slice(0, 25);
+    .slice(0, 15);
 
   return (
     <div
