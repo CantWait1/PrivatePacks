@@ -100,7 +100,7 @@ const SignUpForm = () => {
       }
 
       setEmail(data.email);
-      setSuccess("Verification code sent to your email");
+      setSuccess("Verification code sent to your email. CHECK SPAM FOLDER!");
 
       // Move to next step after a short delay
       setTimeout(() => {
