@@ -43,10 +43,10 @@ const PPandTOS = () => {
           If you are a content owner and wish to request removal or attribution,
           please contact us at{" "}
           <a
-            href="mailto:support@privatepacks.net"
+            href="https://discord.gg/XeJsHdPnNm"
             className="underline text-blue-400"
           >
-            support@privatepacks.net
+            https://discord.gg/XeJsHdPnNm
           </a>
           .
         </p>
@@ -110,10 +110,10 @@ const PPandTOS = () => {
           You may request deletion of your account and email data at any time by
           contacting us at{" "}
           <a
-            href="mailto:support@privatepacks.net"
+            href="https://discord.gg/XeJsHdPnNm"
             className="underline text-blue-400"
           >
-            support@privatepacks.net
+            https://discord.gg/XeJsHdPnNm
           </a>
           .
         </p>
@@ -136,10 +136,10 @@ const PPandTOS = () => {
           For any questions, complaints, or removal requests, please contact us
           at{" "}
           <a
-            href="mailto:support@privatepacks.net"
+            href="https://discord.gg/XeJsHdPnNm"
             className="underline text-blue-400"
           >
-            support@privatepacks.net
+            https://discord.gg/XeJsHdPnNm
           </a>
           .
         </p>
