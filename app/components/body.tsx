@@ -62,7 +62,7 @@ const Body = () => {
         </div>
 
         <Link
-          href=""
+          href="/search"
           className="mt-8 sm:mt-12 md:mt-16 lg:mt-20 w-full sm:w-auto flex justify-center"
         >
           <GlowEffectButton
