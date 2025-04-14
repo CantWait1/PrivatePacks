@@ -72,9 +72,7 @@ const PPandTOS = () => {
           5. Intellectual Property
         </h2>
         <p>
-          The Private Packs name, logo, and branding are our exclusive property
-          and may not be used, copied, or distributed without written
-          permission.
+          The name Private Packs is not our property; however, the logo and branding are our exclusive property and may not be used, copied, or distributed without written permission.
         </p>
         <p>
           All third-party content remains the property of its original owners.
