@@ -23,6 +23,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import StarRating from "./StarRating";
 import PackLeaderboard from "./PackLeaderboard";
+import RandomPackGrid from "./RandomPackGrid";
 import {
   Dialog,
   DialogContent,
@@ -798,35 +799,6 @@ const Search = () => {
     <div className="max-w-9xl mx-auto px-4 py-8">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="md:col-span-2">
-          {/* Recently Added Packs Section - Single Row with Pagination */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className={`bg-neutral-900/40 backdrop-blur-sm border-neutral-800/50 border text-white p-6 sm:p-7 rounded-2xl shadow-xl mb-6 ${nexaLight.className}`}
-          >
-            <div className="flex items-center justify-between mb-5">
-              <div className="flex items-center gap-2">
-                <Clock className="h-5 w-5 text-blue-400" />
-                <h3 className="text-xl font-semibold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  Recently Added Packs
-                </h3>
-              </div>
-            </div>
-
-            {recentPacks.length === 0 ? (
-              <div className="text-center py-8 text-gray-400">
-                <p>No recent packs found</p>
-              </div>
-            ) : (
-              <>
-                {renderRecentPacksRow(recentPacks)}
-                {totalRecentPages > 1 &&
-                  renderPagination(recentPage, totalRecentPages, setRecentPage)}
-              </>
-            )}
-          </motion.div>
-
           {/* Main Search Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -1128,6 +1100,39 @@ const Search = () => {
                   renderPagination(currentPage, totalPages, setCurrentPage)}
               </>
             )}
+
+            {/* Recently Added Packs Section - Single Row with Pagination */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className={`bg-neutral-900/40 backdrop-blur-sm border-neutral-800/50 border text-white p-6 sm:p-7 rounded-2xl shadow-xl mb-6 ${nexaLight.className}`}
+            >
+              <div className="flex items-center justify-between mb-5">
+                <div className="flex items-center gap-2">
+                  <Clock className="h-5 w-5 text-blue-400" />
+                  <h3 className="text-xl font-semibold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                    Recently Added Packs
+                  </h3>
+                </div>
+              </div>
+
+              {recentPacks.length === 0 ? (
+                <div className="text-center py-8 text-gray-400">
+                  <p>No recent packs found</p>
+                </div>
+              ) : (
+                <>
+                  {renderRecentPacksRow(recentPacks)}
+                  {totalRecentPages > 1 &&
+                    renderPagination(
+                      recentPage,
+                      totalRecentPages,
+                      setRecentPage
+                    )}
+                </>
+              )}
+            </motion.div>
           </motion.div>
         </div>
 
@@ -1138,6 +1143,8 @@ const Search = () => {
           className="md:col-span-1"
         >
           <PackLeaderboard />
+          <br></br>
+          <RandomPackGrid packs={packs} />
         </motion.div>
       </div>
 
