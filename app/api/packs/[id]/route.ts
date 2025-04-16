@@ -4,11 +4,19 @@ import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/lib/auth";
 
 export async function GET(
-  req: NextRequest,
+  request: NextRequest,
   { params }: { params: { id: string } }
 ) {
   try {
-    const id = Number.parseInt(params.id, 10);
+    // Make params a Promise if it isn't already
+    const resolvedParams = Promise.resolve(params);
+    const { id: idParam } = await resolvedParams;
+
+    if (!idParam) {
+      return NextResponse.json({ error: "Missing pack ID" }, { status: 400 });
+    }
+
+    const id = Number.parseInt(idParam, 10);
 
     if (isNaN(id)) {
       return NextResponse.json({ error: "Invalid pack ID" }, { status: 400 });
