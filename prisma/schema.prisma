@@ -1,0 +1,164 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  USER
+  ADMIN
+}
+
+model Pack {
+  id              Int       @id @default(autoincrement())
+  name            String
+  author          String
+  resolution      String
+  iconImage       String
+  tags            String[]
+  downloadUrl     String?
+  downloadCount   Int       @default(0)
+  viewCount       Int      @default(0)
+  additionalImages String[]  @default([])
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  ratings         Rating[]
+  favorites       Favorite[]
+  views           View[]
+  comments        Comment[]
+}
+
+model Rating {
+  id        Int      @id @default(autoincrement())
+  value     Int      
+  packId    Int
+  userId    Int
+  pack      Pack     @relation(fields: [packId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([packId, userId])
+}
+
+model User {
+ id        Int      @id @default(autoincrement())
+ email     String   @unique
+ username  String   @unique
+ password  String
+ bio       String?  @db.Text
+ role      UserRole @default(USER)
+ isVerified Boolean @default(false)
+ colorPreference Int? @default(0)
+ createdAt DateTime @default(now())
+ updatedAt DateTime @updatedAt
+
+ passwordResetToken PasswordResetToken? @relation("PasswordResetTokenToUser")
+ announcements      Announcement[]
+ ratings            Rating[]
+ favorites          Favorite[]
+ views              View[]
+ comments           Comment[]
+ commentUpvotes     CommentUpvote[]
+ commentDownvotes   CommentDownvote[]
+}
+
+model PasswordResetToken {
+  id      Int      @id @default(autoincrement())
+  userId  Int      @unique
+  token   String   @unique
+  expires DateTime
+  user    User     @relation("PasswordResetTokenToUser", fields: [userId], references: [id])
+}
+
+model Chat {
+  id        Int      @id @default(autoincrement())
+  message   String
+  author    String   
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Announcement {
+  id          Int      @id @default(autoincrement())
+  title       String
+  content     String   @db.Text
+  authorId    Int
+  author      User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  category    String?
+  isImportant Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Favorite {
+  id        Int      @id @default(autoincrement())
+  packId    Int
+  userId    Int
+  pack      Pack     @relation(fields: [packId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([packId, userId])
+}
+
+model View {
+  id        Int      @id @default(autoincrement())
+  packId    Int
+  userId    Int
+  pack      Pack     @relation(fields: [packId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([packId, userId, createdAt(sort: Desc)])
+}
+
+model Comment {
+  id        Int      @id @default(autoincrement())
+  content   String   @db.Text
+  packId    Int
+  userId    Int
+  parentId  Int?
+  pack      Pack     @relation(fields: [packId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  parent    Comment? @relation("CommentToComment", fields: [parentId], references: [id], onDelete: Cascade)
+  replies   Comment[] @relation("CommentToComment")
+  upvotes   CommentUpvote[]
+  downvotes CommentDownvote[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model CommentUpvote {
+  id        Int      @id @default(autoincrement())
+  commentId Int
+  userId    Int
+  comment   Comment  @relation(fields: [commentId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([commentId, userId])
+}
+
+model CommentDownvote {
+  id        Int      @id @default(autoincrement())
+  commentId Int
+  userId    Int
+  comment   Comment  @relation(fields: [commentId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([commentId, userId])
+}
+
+model EmailVerification {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  code      String
+  verified  Boolean  @default(false)
+  expires   DateTime
+  createdAt DateTime @default(now())
+}

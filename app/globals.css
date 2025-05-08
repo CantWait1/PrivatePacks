@@ -1,0 +1,1005 @@
+@import "tailwindcss";
+
+html,
+body {
+  background-color: url("../public/background.jpg");
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  transition: opacity 0.3s ease;
+}
+
+body.page-transitioning {
+  opacity: 0;
+}
+
+body.page-transitioning * {
+  cursor: progress !important;
+}
+
+:root {
+  color: white;
+  min-height: 100vh;
+  height: auto;
+}
+
+.outlined-text {
+  color: white;
+  animation: scale-rotate 2s ease-in-out, fade-in 2s ease-in-out forwards;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.7),
+    0 0 12px rgba(255, 255, 255, 0.5), 0 0 24px rgba(255, 255, 255, 0.3);
+}
+
+@keyframes scale-rotate {
+  0% {
+    opacity: 0.8;
+    text-shadow: none;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.8;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.7),
+      0 0 12px rgba(255, 255, 255, 0.5), 0 0 24px rgba(255, 255, 255, 0.3);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .outlined-text {
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.6),
+      0 0 8px rgba(255, 255, 255, 0.4), 0 0 16px rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* Add this to your global CSS file */
+.markdown-content ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.markdown-content ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.markdown-content li {
+  margin-bottom: 0.25rem;
+}
+
+.markdown-content blockquote {
+  border-left: 4px solid #6b7280;
+  padding-left: 1rem;
+  font-style: italic;
+  margin: 1rem 0;
+}
+
+.markdown-content pre {
+  background-color: #1f2937;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.markdown-content code {
+  background-color: rgba(31, 41, 55, 0.5);
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.markdown-content p {
+  margin-bottom: 1rem;
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
+  font-weight: bold;
+  margin: 1.5rem 0 0.75rem 0;
+}
+
+.markdown-content h1 {
+  font-size: 1.75rem;
+}
+
+.markdown-content h2 {
+  font-size: 1.5rem;
+}
+
+.markdown-content h3 {
+  font-size: 1.25rem;
+}
+
+.markdown-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.markdown-content table th,
+.markdown-content table td {
+  border: 1px solid #4b5563;
+  padding: 0.5rem;
+}
+
+.markdown-content table th {
+  background-color: #374151;
+}
+
+/* body css */
+
+/* Dark Grid Animation */
+.dark-grid {
+  position: absolute;
+  z-index: -5;
+  opacity: 0.3;
+  animation: pulse-grid 15s infinite alternate;
+}
+
+@keyframes pulse-grid {
+  0% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.1;
+  }
+}
+
+/* Animations */
+@keyframes pulse-slow {
+  0% {
+    opacity: 0.3;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 0.3;
+    transform: scale(0.95);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s infinite;
+}
+
+/* Dark-style text effects */
+.dark-outline {
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8),
+    0 0 10px rgba(255, 255, 255, 0.5), 0 0 15px rgba(255, 255, 255, 0.3),
+    0 0 20px rgba(255, 255, 255, 0.2);
+  letter-spacing: 2px;
+}
+
+.text-glow-dark {
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+.dark-heading {
+  position: relative;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+  letter-spacing: 1px;
+}
+
+.dark-underline {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 80%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #ffffff, transparent);
+  animation: dark-line 3s infinite;
+}
+
+@keyframes dark-line {
+  0% {
+    width: 0;
+    left: 0;
+    opacity: 0;
+  }
+  50% {
+    width: 100%;
+    opacity: 1;
+  }
+  100% {
+    width: 0;
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+/* Tech style glitch effect - updated to dark theme */
+.glitch-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-wrapper::before,
+.glitch-wrapper::after {
+  content: "Private Packs";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+
+.glitch-wrapper::before {
+  color: #333;
+  z-index: -1;
+  animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+  animation-delay: 0.1s;
+}
+
+.glitch-wrapper::after {
+  color: #444;
+  z-index: -2;
+  animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both
+    infinite;
+  animation-delay: 0.2s;
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+/* Dark panels styling */
+.dark-panel {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.dark-panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ffffff, transparent);
+  animation: scan-line 3s linear infinite;
+}
+
+@keyframes scan-line {
+  0% {
+    top: 0%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+.shadow-neo-dark {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 0 0 3px rgba(255, 255, 255, 0.05), 0 0 20px rgba(0, 0, 0, 0.3),
+    inset 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.shadow-digital-dark {
+  box-shadow: 0 0 0 1px #33333320, 0 0 10px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.panel-header {
+  position: relative;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.panel-indicator-dark {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 6px;
+  height: 6px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #666666;
+  animation: blink 2s infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.dark-link {
+  color: #aaaaaa;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+  padding: 0 2px;
+}
+
+.dark-link:hover {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #aaaaaa;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.dark-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.dark-badge {
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 1px solid currentColor;
+  padding: 0px 8px;
+  font-weight: bold;
+}
+
+/* Continue of dark theme styling from the provided files */
+
+/* Dark theme buttons styling */
+.dark-button {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  clip-path: polygon(
+    10px 0,
+    100% 0,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    0 100%,
+    0 10px
+  );
+}
+
+.dark-button::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+  z-index: -1;
+}
+
+.dark-button:hover {
+  color: white;
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+    inset 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.dark-button:hover::before {
+  transform: translateX(100%);
+}
+
+.primary-dark-button {
+  position: relative;
+  background-color: rgba(20, 20, 20, 0.9);
+  color: white;
+  border: 1px solid #ffffff;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  clip-path: polygon(
+    15px 0,
+    100% 0,
+    100% calc(100% - 15px),
+    calc(100% - 15px) 100%,
+    0 100%,
+    0 15px
+  );
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4),
+    inset 0 0 10px rgba(255, 255, 255, 0.2);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+}
+
+.primary-dark-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+  z-index: -1;
+}
+
+.primary-dark-button:hover {
+  background-color: rgba(30, 30, 30, 0.95);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.6),
+    inset 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.primary-dark-button:hover::before {
+  transform: translateX(100%);
+}
+
+/* Dark pulse effect for scroll down icon */
+.dark-pulse {
+  color: #ffffff;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
+  animation: dark-pulse 2s infinite;
+  transition: all 0.3s ease;
+}
+
+.dark-pulse:hover {
+  transform: translateY(5px);
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 1));
+}
+
+@keyframes dark-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+/* Dark highlight */
+.dark-highlight {
+  color: #ffffff;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+/* Form Input Styling for Dark Theme */
+.dark-input {
+  background-color: rgba(30, 30, 30, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.75rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.dark-input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.dark-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Dark Theme Select Dropdown */
+.dark-select {
+  background-color: rgba(30, 30, 30, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.75rem 1rem;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 16px 12px;
+}
+
+.dark-select:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Dark Theme Checkbox */
+.dark-checkbox {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(30, 30, 30, 0.8);
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.dark-checkbox:checked {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.dark-checkbox:checked::after {
+  content: "✓";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 14px;
+}
+
+.dark-checkbox:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Dark Theme Radio Button */
+.dark-radio {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(30, 30, 30, 0.8);
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.dark-radio:checked {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.dark-radio:checked::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.dark-radio:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Dark Theme Modal */
+.dark-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 50;
+  animation: fade-in 0.3s ease-out;
+}
+
+.dark-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% - 2rem);
+  max-width: 600px;
+  background-color: rgba(15, 15, 15, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  z-index: 51;
+  padding: 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  animation: modal-slide-in 0.3s ease-out;
+}
+
+@keyframes modal-slide-in {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -40%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.dark-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.dark-modal-close:hover {
+  color: white;
+}
+
+.dark-modal-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.dark-modal-title {
+  color: white;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.dark-modal-body {
+  margin-bottom: 1.5rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.dark-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Dark Theme Toast/Notification */
+.dark-toast {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background-color: rgba(30, 30, 30, 0.9);
+  border-left: 4px solid white;
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 4px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  max-width: 350px;
+  z-index: 100;
+  animation: toast-slide-in 0.3s ease-out;
+}
+
+@keyframes toast-slide-in {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.dark-toast-success {
+  border-left-color: #10b981;
+}
+
+.dark-toast-error {
+  border-left-color: #ef4444;
+}
+
+.dark-toast-warning {
+  border-left-color: #f59e0b;
+}
+
+.dark-toast-info {
+  border-left-color: #6366f1;
+}
+
+/* Dark Theme Progress Bar */
+.dark-progress-container {
+  width: 100%;
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.dark-progress-bar {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.7)
+  );
+  border-radius: 4px;
+  transition: width 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.dark-progress-bar::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: progress-shine 2s infinite;
+}
+
+@keyframes progress-shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Dark Theme Table */
+.dark-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: white;
+}
+
+.dark-table th {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dark-table tr:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Dark Theme Accordion */
+.dark-accordion {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.dark-accordion-header {
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.2s ease;
+}
+
+.dark-accordion-header:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-accordion-body {
+  padding: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.dark-accordion-icon {
+  transition: transform 0.2s ease;
+}
+
+.dark-accordion-open .dark-accordion-icon {
+  transform: rotate(180deg);
+}
+
+/* Dark Theme Cards */
+.dark-card {
+  background-color: rgba(30, 30, 30, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dark-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.dark-card-header {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-card-body {
+  padding: 1rem;
+}
+
+.dark-card-footer {
+  padding: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Dark Theme Badge */
+.dark-badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+/* Dark Theme Loading Spinner */
+.dark-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: dark-spin 1s linear infinite;
+}
+
+@keyframes dark-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Dropdown Menu Dark Theme */
+.dark-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dark-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 30;
+  min-width: 160px;
+  padding: 0.5rem 0;
+  margin: 0.125rem 0 0;
+  background-color: rgba(20, 20, 20, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.dark-dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  color: white;
+  text-align: left;
+  background-color: transparent;
+  border: 0;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.dark-dropdown-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-dropdown-divider {
+  height: 0;
+  margin: 0.5rem 0;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Dark Theme Tooltip */
+.dark-tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.dark-tooltip-text {
+  visibility: hidden;
+  width: 120px;
+  background-color: rgba(15, 15, 15, 0.95);
+  color: white;
+  text-align: center;
+  border-radius: 4px;
+  padding: 0.5rem;
+  position: absolute;
+  z-index: 40;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  font-size: 0.875rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgba(15, 15, 15, 0.95) transparent transparent transparent;
+}
+
+.dark-tooltip:hover .dark-tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
